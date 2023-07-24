@@ -1,6 +1,6 @@
 /*I used to filter records.*/
 
-SELECT column1, column 2
+SELECT column1, column2
 FROM Customers
 WHERE condition;
 
