@@ -12,3 +12,5 @@ WHERE CustomerID = 12;
 UPDATE Customers_table
 SET CustomerName = 'Juan'
 WHERE Country = 'Mexico';
+
+/*If we omit the where clasue all the records will be updated.*/
