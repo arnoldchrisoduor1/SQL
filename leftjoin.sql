@@ -5,5 +5,5 @@ the left table and none if the right has no match.*/
 
 SELECT Customers.CustomerName, Orders.OrderID
 FROM Customers
-LEFT JOIN ON Customers.CustomerID = Orders.OrderID
+LEFT JOIN Orders ON Customers.CustomerID = Orders.OrderID
 ORDER BY Customers.CustomerName;
