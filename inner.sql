@@ -1,6 +1,7 @@
 /*The INNER JOIN keyword select words that have
 matching values in both tables.*/
 
+/*Joining three columns.*/
 SELECT Orders.OrderID, Customers.CustomerName, Shippers.ShipperName
 FROM ((Orders
 INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID)
