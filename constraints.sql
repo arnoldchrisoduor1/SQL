@@ -91,3 +91,69 @@ DROP PRIMARY KEY;
 
 ALTER TABLE Persons
 DROP PRIMARY KEY;
+
+
+--FOREIGN KEYS
+/*Prevent actions that would destroy links between tables.*/
+CREATE TABLE Orders (
+    OrderID int NOT NULL,
+    OrderNumber int NOT NULL,
+    PersonID int,
+    PRIMARY KEY (OrderID),
+    FOREIGN KEY(PersonID) REFERENCES Persons(PersonID);
+);
+
+--Using the alter.
+ALTER TABLE Orders
+FOREIGN KEY(PersonsID) REFERENCES Persons(PersonID);
+
+--droppng a aforeign key.
+ALTER TABLE Orders
+DROP FOREIGN KEY FK_PersonOrder;
+
+--CHECK CONSTRAINT.
+--used to limit the value range that can be placed in a column.
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    CHECK (Age>=18)
+);
+
+--multiple checks
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    City varchar(255),
+    CONSTRAINT CHK_Person CHECK (Age>=18 AND City='Sandnes')
+);
+--using the ALTER
+ALTER TABLE Persons
+ADD CHECK (Age>=18);
+
+--DEFAULT CONSTRAINT.
+--Used to set dfault values for columns.
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    City carchar(255) DEFAULT 'Sandnes'
+);
+
+--using default to add system values.
+CREATE TABLE Orders(
+    ID int NOT NULL UNIQUE,
+    OrderNumber int NOT NULL UNIQUE,
+    OrderDate date DEFAULT GETDATE()
+);
+--When the table is already created.
+ALTER TABLE Persons
+ALTER City SET DEFAULT 'Sandnes';
+--dropping the default constraint.
+ALTER TABLE Persons
+ALTER City DROP DEFAULT;
+

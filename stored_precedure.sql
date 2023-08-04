@@ -15,7 +15,7 @@ GO;
 EXEC SelectAllCustomers;
 
 /*Selects customers from a particular city in the table.*/
-CREATE PROCEDURE SelectAllCustomers @City nvarchar(30)
+CREATE PROCEDURE SelectAllCustomers @City varchar(30)
 AS
 SELECT * FROM Customers WHERE City = @City
 GO;
