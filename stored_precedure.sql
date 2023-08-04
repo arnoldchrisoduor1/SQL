@@ -22,7 +22,7 @@ GO;
 
 EXEC SelectAllCustomers @City = 'London';
 
-/*Stored procedures with multiple parameters*/
+--Stored procedures with multiple parameters
 CREATE PROCEDURE SelectAllCustomers @City nvarchar(30), @PostalCode nvarchar(10)
 AS
 SELECT * FROM Customers WHERE City = @City AND PostalCode = @PostalCode
