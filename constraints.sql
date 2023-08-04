@@ -157,3 +157,17 @@ ALTER City SET DEFAULT 'Sandnes';
 ALTER TABLE Persons
 ALTER City DROP DEFAULT;
 
+--INDEX CONSTRAINT
+--used to retrieve data from the table in a much faster rate.
+--users cannot see the indexes, they are only used for search.
+CREATE INDEX index_name
+ON table_name (column1, column2, ...);
+
+CREATE INDEX idx_lastname
+ON Persons (LastName);
+--index on a combination of columns.
+CREATE INDEX idx_pname
+ON Persons (LastName ,FirstName);
+--in MySQL
+ALTER TABLE table_name
+DROP INDEX index_name;
