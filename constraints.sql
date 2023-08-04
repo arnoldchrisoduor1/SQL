@@ -57,3 +57,37 @@ DROP INDEX UC_Person;
 
 ALTER TABLE Persons
 DROP CONSTRAINT UC_Person;
+
+--PRIMARY KEYS.
+--a table can have one primary key.
+--this primary key consists of one or multiple columns.
+
+--the following creates a primary key when the table is created.
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    PRIMARY KEY (ID)
+);
+
+--for multiple columns.
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    CONSTRAINT PK_Person PRIMARY KEY (ID,LastName)
+);
+--theres only one primary key made up of two columns.
+
+--primary key on alter table.
+ALTER TABLE Persons
+ADD PRIMARY KEY (ID);
+
+--drpping a primary key constraint.
+ALTER TABLE Persons
+DROP PRIMARY KEY;
+
+ALTER TABLE Persons
+DROP PRIMARY KEY;
